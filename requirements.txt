@@ -1,0 +1,11 @@
+# OG USB Requirements
+# 
+# System dependencies (install via package manager):
+# - util-linux (for lsblk, parted)
+# - dosfstools (for mkfs.vfat)
+# - exfat-utils or exfatprogs (for mkfs.exfat)
+# - ntfs-3g (for mkfs.ntfs)
+# - e2fsprogs (for mkfs.ext4)
+#
+# Python dependencies:
+# (No additional Python packages required - uses only standard library)
