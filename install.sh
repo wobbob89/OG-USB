@@ -30,7 +30,14 @@ case $OS in
     ubuntu|debian|linuxmint|pop)
         echo "Installing dependencies for Debian/Ubuntu-based system..."
         apt-get update
-        apt-get install -y parted dosfstools exfat-fuse exfatprogs ntfs-3g e2fsprogs util-linux
+        
+        # Try modern exfatprogs first, fallback to legacy exfat-utils
+        if apt-cache show exfatprogs &> /dev/null; then
+            apt-get install -y parted dosfstools exfatprogs ntfs-3g e2fsprogs util-linux
+        else
+            echo "exfatprogs not available, using exfat-utils instead"
+            apt-get install -y parted dosfstools exfat-fuse exfat-utils ntfs-3g e2fsprogs util-linux
+        fi
         ;;
     
     fedora|rhel|centos)

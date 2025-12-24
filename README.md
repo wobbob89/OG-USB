@@ -29,8 +29,10 @@ Install the required system tools:
 **Ubuntu/Debian:**
 ```bash
 sudo apt-get update
-sudo apt-get install parted dosfstools exfat-fuse exfatprogs ntfs-3g e2fsprogs
+sudo apt-get install parted dosfstools exfatprogs ntfs-3g e2fsprogs
 ```
+
+Note: For older systems, use `exfat-fuse exfat-utils` instead of `exfatprogs`.
 
 **Fedora/RHEL:**
 ```bash

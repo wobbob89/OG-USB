@@ -7,7 +7,7 @@ Automatically detects and formats USB drives with intelligent filesystem selecti
 import os
 import sys
 import subprocess
-import re
+import time
 from typing import List, Dict, Optional, Tuple
 
 
@@ -156,9 +156,9 @@ class OG_USB:
                         subprocess.run(['umount', partition], 
                                      stderr=subprocess.DEVNULL,
                                      check=False)
-                    except:
+                    except Exception:
                         pass
-        except:
+        except Exception:
             pass
     
     def create_partition(self, device: str) -> bool:
@@ -182,7 +182,7 @@ class OG_USB:
             subprocess.run(['sync'], check=True)
             
             # Wait a moment for the partition to be recognized
-            subprocess.run(['sleep', '2'], check=True)
+            time.sleep(2)
             
             print("✓ Partition created successfully")
             return True
